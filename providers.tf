@@ -4,11 +4,3 @@ provider "aviatrix" {
   controller_ip = "18.156.141.82"
   version       = "2.17.0"
 }
-
-
-provider "aws" {
-  version    = "~> 2.0"
-  region =  var.cloud_region
-  access_key = var.aws_access_key
-  secret_key = var.aws_secret_key
-}
