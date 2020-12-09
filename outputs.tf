@@ -12,5 +12,5 @@ output "created_public_subnets" {
  }
 
 output "blocked_sites" {
-value = aviatrix_fqdn.fqdn_egress.domain_names.fqdn
+value = aviatrix_fqdn.fqdn_egress.domain_names[*].fqdn
 }
