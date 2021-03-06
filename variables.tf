@@ -4,3 +4,4 @@ variable "fqdn_domains" {} # list of domains example:  facebook.com, *.tiktok.co
 variable "vpc_name" {default = "default-name"}
 variable "ctrl_password" {}
 variable "vcs_repository" {default = "placeholder"}
+variable "ctrl_ip" {}
