@@ -2,5 +2,5 @@ provider "aviatrix" {
   username     = "admin"
   password      = var.ctrl_password
   controller_ip = var.ctrl_ip
-  version       = "2.18.0"
+  version       = "2.17.0"
   }
