@@ -1,9 +1,5 @@
 #######################################################################
 # VPC/Vnet
-#
-locals {
-  subnet_count = length(aviatrix_vpc.aviatrix_vpc_vnet.subnets[*].cidr)/2
-}
 
 resource "aviatrix_vpc" "aviatrix_vpc_vnet" {
   cloud_type           =  1
@@ -25,7 +21,7 @@ resource "aviatrix_gateway" "avx-egress" {
   account_name           =  "aws-account"
   gw_name                = "avx-${var.vpc_name}-gw"
   gw_size                = "t2.medium" 
-  subnet           = aviatrix_vpc.aviatrix_vpc_vnet.subnets[local.subnet_count].cidr
+  subnet           = aviatrix_vpc.aviatrix_vpc_vnet.public_subnets[0]
 }
 
 ########
@@ -45,7 +41,7 @@ resource "aviatrix_fqdn" "fqdn_egress" {
         fqdn = trimspace(domain_names.value)
         port = "443"
         proto = "tcp"
-        action = "Deny"
+        action = "Base Policy"
       }
     }
 }
