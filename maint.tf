@@ -21,7 +21,7 @@ resource "aviatrix_gateway" "avx-egress" {
   account_name           =  "aws-account"
   gw_name                = "avx-${var.vpc_name}-gw"
   gw_size                = "t2.medium" 
-  subnet           = aviatrix_vpc.aviatrix_vpc_vnet.public_subnets[0]
+  subnet           = aviatrix_vpc.aviatrix_vpc_vnet.public_subnets[0].cidr
 }
 
 ########
