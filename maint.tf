@@ -27,7 +27,7 @@ resource "aviatrix_gateway" "avx-egress" {
 ########
 
 resource "aviatrix_fqdn" "fqdn_egress" {
-    fqdn_mode = "white"
+    fqdn_mode = "black"
     fqdn_enabled = true
     fqdn_tag = "fqdn-${var.vpc_name}"
 
