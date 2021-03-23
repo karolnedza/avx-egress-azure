@@ -16,11 +16,13 @@ resource "aviatrix_vpc" "aviatrix_vpc_vnet" {
 
 resource "aviatrix_gateway" "avx-egress" {
   cloud_type             =  1 
+  
   vpc_reg               =  var.cloud_region
   vpc_id                 = aviatrix_vpc.aviatrix_vpc_vnet.vpc_id
   account_name           =  "aws-account"
   gw_name                = "avx-${var.vpc_name}-gw"
   gw_size                = "t2.medium" 
+  single_ip_snat         = true
   subnet           = aviatrix_vpc.aviatrix_vpc_vnet.public_subnets[0].cidr
 }
 
